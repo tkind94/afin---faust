@@ -1,0 +1,9 @@
+#!/bin/bash
+#PBS -S /bin/bash
+#PBS -N faust
+#PBS -l nodes=1:ppn=16
+#PBS -l walltime=8:00:00:00
+#PBS -l mem=64G
+#PBS -m abe
+#PBS -M christopher@hoob.in
+#PBS -I

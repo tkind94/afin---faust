@@ -1,0 +1,58 @@
+Usage examples:
+===============
+
+$ ./faust-encode
+usage: ./faust-encode -[iorblrth]
+i|input PATH
+o|output PATH                  (default: encode.output.TIMESTAMP)
+r|initial-raw-block-size VALUE (default: 1g)
+b|block-size VALUE             (default: 2g)
+l|length-threshold VALUE       (default: 64)
+d|dynamic-threshold            (default: fasle)
+t|threads VALUE                (default: 1)
+h|help
+
+
+Options:
+========
+
+input = Input reads. One per line. Containing A C G T. No N characters
+are accepted. Currently MAX_READ_LENGTH is set to 100. This can be
+modified in common.h.
+
+output = Path to the compressed output.
+
+initial-raw-block-size = The size of the initial block that is encoded in 2bpb.
+
+block-size = The size of each scan block.
+
+length-threshold = Only check candidates if they share a common factor of at least /threshold/.
+
+dynamic-threshold = Dynamically increase the threshold as the scan progresses in the text (to speed up runtime).
+
+threads = Specify the number of threads to search for candidates (on large files this really improves runtime).
+
+
+Arguments that require a size string:
+=====================================
+
+You can specify a human readable string, for example, 1g and it will assume 1GB of space.
+
+G|g M|m K|k and B|b are all acceptable suffixes.
+
+If no suffix is used it is assumed to be bytes.
+
+
+
+$ ./faust-decode
+usage: ./faust-decode input faust-output
+
+
+
+$ ./afin-encode
+usage: ./afin-encode faust-input afin-output
+
+
+
+$ ./afin-decode
+usage: ./afin-encode afin-input output
